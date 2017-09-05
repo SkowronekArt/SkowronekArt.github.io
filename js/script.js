@@ -1,16 +1,6 @@
-/*
-$.ajax({
-    dataType: "json",
-    url: quoteUrl,
-    data: null,
-    success: createTweet
-});
-=> to jest to samo, co pierwsze trzy linijki kodu
-*/
 var tweetLink = "https://twitter.com/intent/tweet?text=";
 var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
 
-$.ajaxSetup({ cache: false });
 
 function getQuote() {
     $.getJSON(quoteUrl, createTweet);
@@ -43,4 +33,5 @@ $(document).ready(function() {
     $('.trigger').click(function() {
         getQuote();
     })
+    $.ajaxSetup({ cache: false });
 });
